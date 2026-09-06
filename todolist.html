@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="todostyle.css">
+</head>
+<body>
+<div class="app">
+    <div class="top">
+        <div>
+            <h1>Tasks</h1>
+            <p id="today"></p>
+        </div>
+        <div class="progress">
+            <span id="progressText">0%</span>
+            <div><i id="progressBar"></i></div>
+        </div>
+    </div>
+    <form id="form">
+        <input
+            id="input"
+            type="text"
+            placeholder="Add a task..."
+            autocomplete="off"   >
+        <button>Add</button>
+    </form>
+    <div class="controls">
+        <div class="filters">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="active">Active</button>
+            <button data-filter="done">Done</button>
+        </div>
+        <div class="search">
+            <input id="search" type="text" placeholder="Search tasks">
+            <span>⌕</span>
+        </div>
+    </div>
+    <div id="list"></div>
+    <div id="empty" class="empty">
+        <div>✓</div>
+        <strong>No tasks</strong>
+        <span>Add something you need to get done.</span>
+    </div>
+    <div class="footer">
+        <span id="count">0 tasks</span>
+        <button id="clear">Clear completed</button>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById("form");
+    const input = document.getElementById("input");
+    const list = document.getElementById("list");
+    const empty = document.getElementById("empty");
+    const search = document.getElementById("search");
+    const count = document.getElementById("count");
+    const clear = document.getElementById("clear");
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+    const today = document.getElementById("today");
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    let filter = "all";
+    today.textContent = new Date().toLocaleDateString("en-US", {
+  weekday: "long",
+  month: "long",
+ day: "numeric"
+    });
+ form.addEventListener("submit", e => {
+ e.preventDefault();
+ const text = input.value.trim();
+ if (!text) return;
+ tasks.unshift({
+ id: Date.now(),
+  text,
+ done: false
+        });
+input.value = "";
+ save();
+  render();
+  input.focus();
+    });
+    document.querySelectorAll(".filters button").forEach(btn => {
+    btn.addEventListener("click", () => {
+  document.querySelector(".filters .active")
+ .classList.remove("active");
+ btn.classList.add("active"); filter = btn.dataset.filter;  render();
+        });
+    });
+ search.addEventListener("input", render);
+ clear.addEventListener("click", () => {
+  tasks = tasks.filter(task => !task.done);
+  save();
+  render();
+    });
+  function toggle(id) {
+  tasks = tasks.map(task =>
+ task.id === id
+   ? { ...task, done: !task.done }
+   : task  );
+  save();
+  render();
+    }
+    function remove(id) {
+        const item = document.querySelector(`[data-id="${id}"]`);
+  if (item) {
+  item.classList.add("remove");
+  setTimeout(() => {
+  tasks = tasks.filter(task => task.id !== id);
+   save();
+   render();
+  }, 180);
+ }
+    }
+ function save() {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+    function render() {
+ const query = search.value.toLowerCase().trim();
+ const visible = tasks.filter(task => {
+ const matchesSearch =
+  task.text.toLowerCase().includes(query);
+ if (filter === "active")
+  return !task.done && matchesSearch;
+  if (filter === "done")
+    return task.done && matchesSearch;
+  return matchesSearch;
+ });
+     list.innerHTML = "";
+      visible.forEach(task => {
+ const item = document.createElement("div");
+  item.className = `task ${task.done ? "done" : ""}`;
+  item.dataset.id = task.id;
+  item.innerHTML = `
+  <button class="check" onclick="toggle(${task.id})">
+     ${task.done ? "✓" : ""}
+ </button>
+  <span>${escapeHTML(task.text)}</span>
+   <button class="delete" onclick="remove(${task.id})">     × </button>    `;   list.appendChild(item);
+ });  empty.style.display =    visible.length ? "none" : "flex";  count.textContent =  `${tasks.length} ${tasks.length === 1 ? "task" : "tasks"}`;
+ const done =
+  tasks.filter(task => task.done).length;
+      const percent = tasks.length
+          ? Math.round((done / tasks.length) * 100) : 0;
+        progressText.textContent = `${percent}%`;  progressBar.style.width = `${percent}%`;
+    }
+    function escapeHTML(text) {
+        const div = document.createElement("div");
+        div.textContent = text; return div.innerHTML;
+  }
+    render();
+</script>
+</body>
+</html>
+
