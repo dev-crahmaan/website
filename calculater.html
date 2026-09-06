@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div class="calculator">
+        <div class="header">
+            <span>Calculator</span>
+            <span class="dot"></span>
+        </div> 
+ <div class="display">
+            <div id="history"></div>
+            <div id="screen">0</div>
+        </div>
+        <div class="buttons">
+            <button class="function" onclick="clearCalculator()">AC</button>
+            <button class="function" onclick="deleteNumber()">DEL</button>
+            <button class="function" onclick="percent()">%</button>
+            <button class="operator" onclick="chooseOperator('/')">÷</button>
+            <button onclick="number('7')">7</button>
+            <button onclick="number('8')">8</button>
+            <button onclick="number('9')">9</button>
+            <button class="operator" onclick="chooseOperator('*')">×</button>
+            <button onclick="number('4')">4</button>
+            <button onclick="number('5')">5</button>
+            <button onclick="number('6')">6</button>
+            <button class="operator" onclick="chooseOperator('-')">−</button>
+            <button onclick="number('1')">1</button>
+            <button onclick="number('2')">2</button>
+            <button onclick="number('3')">3</button>
+            <button class="operator" onclick="chooseOperator('+')">+</button>
+            <button class="zero" onclick="number('0')">0</button>
+            <button onclick="number('.')">.</button>
+            <button class="equals" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        let current = "";
+        let previous = "";
+        let operator = "";
+ function number(value) {
+            if (value == "." && current.includes(".")) {
+                return;
+            }
+            current = current + value;
+            document.getElementById("screen").innerHTML = current;
+        }
+        function chooseOperator(value) {
+            if (current == "") {
+                return;
+            }
+            previous = current;
+            current = "";
+            operator = value;
+            document.getElementById("history").innerHTML =
+                previous + " " + showOperator(value);
+        }
+        function calculate() {
+            if (previous == "" || current == "" || operator == "") {
+                return;
+            }
+            let number1 = Number(previous);
+            let number2 = Number(current);
+            let answer;
+            if (operator == "+") {
+                answer = number1 + number2;
+            } else if (operator == "-") {
+                answer = number1 - number2;
+            } else if (operator == "*") {
+                answer = number1 * number2;
+            } else if (operator == "/") {
+                if (number2 == 0) {
+                    document.getElementById("screen").innerHTML = "Error";
+                    return;
+                }
+                answer = number1 / number2;
+            }
+            document.getElementById("history").innerHTML =
+                previous + " " + showOperator(operator) + " " + current + " =";
+            current = answer;
+            previous = "";
+            operator = "";
+            document.getElementById("screen").innerHTML = current;
+        }
+        function showOperator(value) {
+            if (value == "*") {
+                return "×";
+            }
+            if (value == "/") {
+                return "÷";
+            }
+            if (value == "-") {
+                return "−";
+            }
+            return value;
+        }
+        function clearCalculator() {
+            current = "";
+            previous = "";
+            operator = "";
+            document.getElementById("screen").innerHTML = "0";
+            document.getElementById("history").innerHTML = "";
+        }
+        function deleteNumber() {
+            current = current.slice(0, -1);
+            if (current == "") {
+                document.getElementById("screen").innerHTML = "0";
+            } else {
+                document.getElementById("screen").innerHTML = current;
+            }
+        }
+        function percent() {
+            if (current == "") {
+                return;
+            }
+            current = Number(current) / 100;
+            document.getElementById("screen").innerHTML = current;
+        }
+    </script>
+</body>
+</html>
