@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahman Mohamed — Software Developer</title>
+<meta name="description" content="Portfolio of Rahman Mohamed, software developer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.15.1/devicon.min.css">
+<noscript><style>.reveal,[data-animate]{opacity:1!important;transform:none!important;}</style></noscript>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="wrap">
+      <a href="#top" class="nav-mark">dev_c<span>/rahman</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#info">Info</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#tags">Tags</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" style="border-top:none;">
+      <div class="wrap">
+        <div class="hero-left">
+          <div class="terminal reveal" id="revealTerminal">
+            <div class="terminal-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="terminal-title">whoami.sh</span>
+            </div>
+            <div class="terminal-body">
+              <div class="line"><span class="prompt">$</span> whoami</div>
+              <h1 class="hero-name" id="typedName"></h1>
+              <p class="hero-role" id="typedRole"></p>
+            </div>
+          </div>
+
+          <p class="hero-desc reveal" id="revealDesc">
+            I build clean, fast, and reliable software — from backend systems
+            to interfaces people actually enjoy using. Currently open to new
+            projects and collaborations.
+          </p>
+
+          <div class="hero-actions reveal" id="revealActions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+          </div>
+        </div>
+
+        <div class="portrait reveal" id="revealPortrait">
+          <div class="portrait-frame circle tilt-card">
+            <div class="portrait-inner">
+              <img src="my profile picture.jpeg" alt="Portrait of Rahman Mohamed">
+            </div>
+          </div>
+          <div class="portrait-tag">dev-c/rahmaan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head" data-animate="left">
+          <span class="section-num">01</span>
+          <h2 class="section-title">About</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text" data-animate="left">
+            <p>
+              I'm <strong>C/Rahman Mohamed</strong>, a software developer focused on
+              writing dependable code and designing systems that are easy to
+              reason about. I care about the details that don't show up in a
+              demo: readable code, sensible error handling, and interfaces
+              that respect the person using them.
+            </p>
+            <p>
+              Outside of client work, I spend time contributing to open
+              source, exploring new tools, and refining my own workflow —
+              this site included.
+            </p>
+          </div>
+          <div class="stat-list">
+            <div class="stat tilt-card" data-animate="right" style="--d:0.05s">
+              <div class="stat-num">4+</div>
+              <div class="stat-label">Years building software</div>
+            </div>
+            <div class="stat tilt-card" data-animate="right" style="--d:0.15s">
+              <div class="stat-num">30+</div>
+              <div class="stat-label">Projects shipped</div>
+            </div>
+            <div class="stat tilt-card" data-animate="right" style="--d:0.25s">
+              <div class="stat-num">12</div>
+              <div class="stat-label">Happy clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAL INFO -->
+    <section id="info">
+      <div class="wrap">
+        <div class="section-head" data-animate="left">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Personal Info</h2>
+        </div>
+        <div class="info-grid">
+          <div class="info-card location tilt-card" data-animate="scale" style="--d:0.05s">
+            <div class="info-icon">📍</div>
+            <div class="info-label">LOCATION</div>
+            <div class="info-value" id="infoLocation">Hargeisa, Somaliland</div>
+          </div>
+          <div class="info-card phone tilt-card" id="phoneCard" data-animate="scale" style="--d:0.18s" role="button" tabindex="0" aria-label="Copy phone number">
+            <div class="info-icon">📞</div>
+            <div class="info-label">PHONE</div>
+            <div class="info-value gradient-text" id="infoPhone">67 2486098</div>
+            <div class="phone-copy-hint">Tap to copy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head" data-animate="left">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-cell tilt-card" data-animate="scale" style="--d:0.05s">
+            <h3>Languages</h3>
+            <ul>
+              <li>JavaScript / TypeScript</li>
+              <li>Python</li>
+              <li>C / C++</li>
+              <li>HTML5 &amp; CSS3</li>
+            </ul>
+          </div>
+          <div class="skill-cell tilt-card" data-animate="scale" style="--d:0.15s">
+            <h3>Frameworks &amp; Tools</h3>
+            <ul>
+              <li>React / Next.js</li>
+              <li>Node.js / Express</li>
+              <li>Git &amp; GitHub</li>
+              <li>Docker</li>
+            </ul>
+          </div>
+          <div class="skill-cell tilt-card" data-animate="scale" style="--d:0.25s">
+            <h3>Practices</h3>
+            <ul>
+              <li>REST API design</li>
+              <li>Responsive UI</li>
+              <li>Testing &amp; debugging</li>
+              <li>Performance tuning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAGS -->
+    <section id="tags">
+      <div class="wrap">
+        <div class="section-head" data-animate="left">
+          <span class="section-num">04</span>
+          <h2 class="section-title">Tags</h2>
+        </div>
+        <div class="tags-grid">
+          <div class="tag-card tilt-card" data-animate="scale" style="--d:0.02s">
+            <div class="tag-icon-wrap"><i class="devicon-javascript-plain colored"></i></div>
+            <div class="tag-name">JavaScript</div>
+            <div class="tag-count" data-count="95">0</div>
+            <div class="tag-count-label">Proficiency</div>
+          </div>
+          <div class="tag-card tilt-card" data-animate="scale" style="--d:0.06s">
+            <div class="tag-icon-wrap"><i class="devicon-python-plain colored"></i></div>
+            <div class="tag-name">Python</div>
+            <div class="tag-count" data-count="90">0</div>
+            <div class="tag-count-label">Proficiency</div>
+          </div>
+          <div class="tag-card tilt-card" data-animate="scale" style="--d:0.1s">
+            <div class="tag-icon-wrap"><i class="devicon-react-original colored"></i></div>
+            <div class="tag-name">React</div>
+            <div class="tag-count" data-count="88">0</div>
+            <div class="tag-count-label">Proficiency</div>
+          </div>
+          <div class="tag-card tilt-card" data-animate="scale" style="--d:0.14s">
+            <div class="tag-icon-wrap"><i class="devicon-nodejs-plain colored"></i></div>
+            <div class="tag-name">Node.js</div>
+            <div class="tag-count" data-count="85">0</div>
+            <div class="tag-count-label">Proficiency</div>
+          </div>
+          <div class="tag-card tilt-card" data-animate="scale" style="--d:0.18s">
+            <div class="tag-icon-wrap"><i class="devicon-html5-plain colored"></i></div>
+            <div class="tag-name">HTML5</div>
+            <div class="tag-count" data-count="92">0</div>
+            <div class="tag-count-label">Proficiency</div>
+          </div>
+          <div class="tag-card tilt-card" data-animate="scale" style="--d:0.22s">
+            <div class="tag-icon-wrap"><i class="devicon-css3-plain colored"></i></div>
+            <div class="tag-name">CSS3</div>
+            <div class="tag-count" data-count="90">0</div>
+            <div class="tag-count-label">Proficiency</div>
+          </div>
+          <div class="tag-card tilt-card" data-animate="scale" style="--d:0.26s">
+            <div class="tag-icon-wrap"><i class="devicon-git-plain colored"></i></div>
+            <div class="tag-name">Git</div>
+            <div class="tag-count" data-count="80">0</div>
+            <div class="tag-count-label">Proficiency</div>
+          </div>
+          <div class="tag-card tilt-card" data-animate="scale" style="--d:0.3s">
+            <div class="tag-icon-wrap"><i class="devicon-docker-plain colored"></i></div>
+            <div class="tag-name">Docker</div>
+            <div class="tag-count" data-count="75">0</div>
+            <div class="tag-count-label">Proficiency</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head" data-animate="left">
+          <span class="section-num">05</span>
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <div class="project-list">
+
+          <div class="project-row tilt-card" data-animate style="--d:0.05s">
+            <span class="project-index">001</span>
+            <div>
+              <h3 class="project-name">Inventory Dashboard</h3>
+              <p class="project-desc">A real-time stock management tool with low-stock alerts and analytics.</p>
+              <div class="project-stack">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+            </div>
+            <a href="#" class="project-link">View →</a>
+          </div>
+
+          <div class="project-row tilt-card" data-animate style="--d:0.15s">
+            <span class="project-index">002</span>
+            <div>
+              <h3 class="project-name">TaskFlow</h3>
+              <p class="project-desc">A minimal kanban-style task manager with drag-and-drop and offline support.</p>
+              <div class="project-stack">
+                <span class="tag">JavaScript</span>
+                <span class="tag">IndexedDB</span>
+              </div>
+            </div>
+            <a href="#" class="project-link">View →</a>
+          </div>
+
+          <div class="project-row tilt-card" data-animate style="--d:0.25s">
+            <span class="project-index">003</span>
+            <div>
+              <h3 class="project-name">API Rate Limiter</h3>
+              <p class="project-desc">A lightweight, configurable rate-limiting middleware for Express APIs.</p>
+              <div class="project-stack">
+                <span class="tag">Python</span>
+                <span class="tag">Redis</span>
+              </div>
+            </div>
+            <a href="#" class="project-link">View →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head" data-animate="left">
+          <span class="section-num">06</span>
+          <h2 class="section-title">Contact</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-text" data-animate="left">
+            <p>
+              Have a project in mind or just want to talk shop? My inbox is
+              open — I usually reply within a day or two.
+            </p>
+          </div>
+          <div class="contact-list" data-animate="right">
+            <div class="contact-item">
+              <span>EMAIL</span>
+              <a href="mailto:rahman.mohamed@example.com">c/rahman.mohamed@example.com</a>
+            </div>
+            <div class="contact-item">
+              <span>GITHUB</span>
+              <a href="#" target="_blank" rel="noopener">github.com/c/rahmanmohamed</a>
+            </div>
+            <div class="contact-item">
+              <span>LINKEDIN</span>
+              <a href="#" target="_blank" rel="noopener">linkedin.com/in/c/rahmanmohamed</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> C/Rahman Mohamed — built with HTML, CSS &amp; JS</div>
+  </footer>
+
+  <div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+(function () {
+  "use strict";
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  var navToggle = document.getElementById("navToggle");
+  var nav = document.getElementById("nav");
+  navToggle.addEventListener("click", function () {
+    nav.classList.toggle("open");
+  });
+  document.querySelectorAll(".nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      nav.classList.remove("open");
+    });
+  });
+
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---- Typing animation for the hero terminal ----
+  function typeText(el, text, speed, onDone) {
+    if (reducedMotion) {
+      el.textContent = text;
+      if (onDone) onDone();
+      return;
+    }
+    var i = 0;
+    el.textContent = "";
+    (function step() {
+      if (i <= text.length) {
+        el.textContent = text.slice(0, i);
+        i++;
+        setTimeout(step, speed);
+      } else if (onDone) {
+        onDone();
+      }
+    })();
+  }
+
+  // ---- Looping typewriter for the role line ----
+  var roles = ["Developer", "Web Builder", "Problem Solver"];
+
+  function loopTypeRoles(el, words, index) {
+    if (reducedMotion) {
+      el.textContent = "> " + words[0];
+      return;
+    }
+    index = index || 0;
+    var word = words[index];
+    var i = 0;
+
+    (function type() {
+      el.textContent = "> " + word.slice(0, i);
+      i++;
+      if (i <= word.length) {
+        setTimeout(type, 60);
+      } else {
+        setTimeout(erase, 1400);
+      }
+    })();
+
+    function erase() {
+      if (i > 0) {
+        i--;
+        el.textContent = "> " + word.slice(0, i);
+        setTimeout(erase, 30);
+      } else {
+        setTimeout(function () {
+          loopTypeRoles(el, words, (index + 1) % words.length);
+        }, 200);
+      }
+    }
+  }
+
+  function startHeroSequence() {
+    var nameEl = document.getElementById("typedName");
+    var roleEl = document.getElementById("typedRole");
+    var cursor = document.createElement("span");
+    cursor.className = "cursor";
+    nameEl.after(cursor);
+
+    typeText(nameEl, "dev_c/rahman", 60, function () {
+      cursor.remove();
+      roleEl.after(Object.assign(document.createElement("span"), { className: "cursor" }));
+      loopTypeRoles(roleEl, roles);
+    });
+  }
+
+  // ---- Orchestrated reveal on load ----
+  function revealOnLoad() {
+    var ids = ["revealTerminal", "revealPortrait", "revealDesc", "revealActions"];
+    ids.forEach(function (id, index) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      setTimeout(function () {
+        el.classList.add("is-visible");
+      }, reducedMotion ? 0 : 150 * index);
+    });
+  }
+
+  // ---- Scroll-triggered entrance animations ----
+  function initScrollReveal() {
+    var targets = document.querySelectorAll("[data-animate]");
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      targets.forEach(function (el) { el.classList.add("in-view"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: "0px 0px -40px 0px" });
+    targets.forEach(function (el) { observer.observe(el); });
+  }
+
+  // ---- Click / tap bounce feedback on interactive cards ----
+  function initPressBounce() {
+    var cards = document.querySelectorAll(".tilt-card");
+    cards.forEach(function (card) {
+      card.addEventListener("pointerdown", function () {
+        card.classList.add("press");
+      });
+      ["pointerup", "pointerleave", "pointercancel"].forEach(function (evt) {
+        card.addEventListener(evt, function () {
+          card.classList.remove("press");
+        });
+      });
+    });
+  }
+
+  // ---- Count-up animation for tag proficiency numbers ----
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+    if (reducedMotion) {
+      el.textContent = target + "%";
+      return;
+    }
+    var start = null;
+    var duration = 1100;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + "%";
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function initTagCounts() {
+    var counts = document.querySelectorAll(".tag-count");
+    if (!("IntersectionObserver" in window)) {
+      counts.forEach(animateCount);
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counts.forEach(function (el) { observer.observe(el); });
+  }
+
+  // ---- Tap-to-copy phone number ----
+  function initPhoneCopy() {
+    var phoneCard = document.getElementById("phoneCard");
+    var phoneEl = document.getElementById("infoPhone");
+    var toast = document.getElementById("toast");
+    if (!phoneCard || !phoneEl || !toast) return;
+
+    function copyPhone() {
+      var number = phoneEl.textContent.trim();
+      var showToast = function () {
+        toast.classList.add("show");
+        setTimeout(function () { toast.classList.remove("show"); }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(number).then(showToast).catch(showToast);
+      } else {
+        showToast();
+      }
+    }
+
+    phoneCard.addEventListener("click", copyPhone);
+    phoneCard.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        copyPhone();
+      }
+    });
+  }
+
+  window.addEventListener("DOMContentLoaded", function () {
+    revealOnLoad();
+    initScrollReveal();
+    initPressBounce();
+    initTagCounts();
+    initPhoneCopy();
+    setTimeout(startHeroSequence, reducedMotion ? 0 : 300);
+  });
+})();
+</script>
+
+</body>
+</html>
